@@ -2,6 +2,7 @@ General comments
 ================
 * Generic circuit that can be used to turn a unknown <$200 tube off eBay into a functioning RGA
 * Make it flexible, software-define as much as possible
+* Electron multipliers are not supported
 * Modular design: mainboard + rod drive module
 * Rod drive module options:
   * variable amplitude (resonant transformer)
@@ -12,14 +13,15 @@ Mainboard components
 ====================
 * Ethernet and 12V input connectors
 * Screw terminals to RGA: GND, 3x plates, 2x filament
-* MCU
+* Shielded connector (e.g. SMA) to RGA Faraday cup
+* MCU TM4C1294KCPDT
 * Symmetric HV flyback
 * Filament flyback
 * 4x bias amps (DC)
 * Electron emission current probe
 * TIA
 
-Rod drive module connector signals
+Rod drive module/mainboard signals
 ==================================
 * +/-5V
 * +3.3V
@@ -32,6 +34,12 @@ Rod drive module connector signals
 * Error (fault) feedback
 * Module identification signal
 
+Rod drive module/RGA signals
+============================
+* GND, Rods 1/3, Rods 2/4
+* Need to keep connections short to reduce EMI
+* Shielding?
+
 Symmetric HV flyback
 ====================
 * Used to power linear amps, voltage can be imprecise
@@ -40,7 +48,7 @@ Symmetric HV flyback
 * May want variable voltage - can be lowered during degas to reduce linear amp dissipation
 * Center-tapped secondary to produce positive and negative voltages at once
 * Use the same transformer cores as ionpak (large one is safer, smaller one needs testing)
-* Max current about 10-15mA, to be confirmed (check especially degas requirements)
+* Max current about 20mA, to be confirmed (check especially degas requirements)
 
 Filament flyback
 ================
@@ -83,7 +91,7 @@ Variable amplitude rod drive module
 * Micrometals -2 material provides high Q at ~2.5MHz
 * Feed out-of-phase signal to compensate for MOSFET gate capacitance (calibration should be automatic and done by firmware)
 * Monitor output of RF transformer using charge pump (resistor divider needs tricky compensation)
-* Use two well-balanced secondaries to drive each pair of rod (same as SRS)
+* Use two well-balanced secondaries to drive each pair of rods (same as SRS)
 * Use two independent DC bias amplifiers (similar as plate drivers) to drive each pair of rods (enables biasing the whole mass filter to arbitrary potentials)
 * Need to be careful about DC bias balance, RF amplitude stabilization, and maintainance of RF/DC ratio during scan
 
