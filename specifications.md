@@ -100,8 +100,8 @@ Variable frequency rod drive module
 * Requires relatively modest voltages, produces less EMI, does not require tuning, might extend mass range (need to check the theory)
 * DDS TBD
 * Consider high-speed common-base (voltage gain) + common emitter push-pull (current gain) circuit (idea from Grzegorz Kasprowicz)
-* For common-base circuit, find higher-voltage version of BCV61/BCV63 (use one of the transistor in the pair to bias the base of the other one)
-* For push-pull transistors, consider CRT drive devices made by NTE e.g. NTE2508/NTE2509
+* For common-base circuit, find higher-voltage version of BCV61/BCV63 (use one of the transistor in the pair to bias the base of the other one), maybe DMMT5551/DMMT5401
+* For push-pull transistors, consider CRT drive devices made by NTE e.g. NTE2508/NTE2509, or KSA1381/KSC3503
 * Check circuits from Tektronix electrostatic deflection systems, current feedback amps
 * Integrated CRT cathode drivers are obsolete and difficult to buy, should not be used.
 * Apex op-amps are very expensive and do not work correctly, should not be used.
